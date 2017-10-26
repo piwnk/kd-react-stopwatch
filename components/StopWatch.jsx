@@ -27,16 +27,6 @@ export default class StopWatch extends Component {
       times: PropTypes.object.isRequired
    }
 
-   // state = {
-   //    times: format(this.props.times)
-   // }
-
-
-   componentWillReceiveProps() {
-      // this.forceUpdate();
-      // console.log('New props');
-   }
-
 
    render() {
       return (

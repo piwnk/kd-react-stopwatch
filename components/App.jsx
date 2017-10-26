@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 import Nav from './Nav';
 import StopWatch from './StopWatch';
-// import format from './StopWatch';
 import List from './List';
 
 
@@ -19,8 +18,6 @@ export default class App extends Component {
          watch: null,
          list: []
       };
-      // this.reset();
-      // this.print();
    }
 
    reset = () => {
@@ -45,14 +42,12 @@ export default class App extends Component {
       this.setState({
          running: false
       });
-      // this.state.running = false;
       clearInterval(this.state.watch);
    }
 
    step = () => {
       if (this.state.running) {
          this.calculate();
-         // this.print();
       }
    }
 
@@ -103,6 +98,7 @@ export default class App extends Component {
                times={this.state.times}
             />
             <List
+               onSubmit={this.submit}
             />
          </div>
       );

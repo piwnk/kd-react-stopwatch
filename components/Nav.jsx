@@ -12,7 +12,6 @@ String.prototype.capitalize = function () {
 class Anchor extends Component {
    static propTypes = {
       label: PropTypes.string.isRequired,
-      // onStart: PropTypes.func.isRequired
       onClick: PropTypes.func.isRequired
    }
 
@@ -41,18 +40,6 @@ const Anchors = ({ onStart, onStop, onReset, onSubmit }) => {
          <Anchor label="submit" onClick={onSubmit} />
       </div>
    );
-
-   // return labels
-   //    .map(item => ({
-   //       key: labels.indexOf(item),
-   //       label: item
-   //    }))
-   //    .map(({ key, label }) => (
-   //       <Anchor
-   //          key={key}
-   //          label={label}
-   //       />
-   //    ));
 };
 
 const Nav = ({ onStart, onStop, onReset, onSubmit }) => (
@@ -68,6 +55,13 @@ const Nav = ({ onStart, onStop, onReset, onSubmit }) => (
    </nav>
 );
 
+Anchors.propTypes = {
+   onStart: PropTypes.func.isRequired,
+   onStop: PropTypes.func.isRequired,
+   onReset: PropTypes.func.isRequired,
+   onSubmit: PropTypes.func.isRequired
+};
+
 Nav.propTypes = {
    onStart: PropTypes.func.isRequired,
    onStop: PropTypes.func.isRequired,
@@ -76,16 +70,3 @@ Nav.propTypes = {
 };
 
 export default Nav;
-
-
-// const startButton = document.getElementById('start');
-// startButton.addEventListener('click', () => stopwatch.start());
-
-// const stopButton = document.getElementById('stop');
-// stopButton.addEventListener('click', () => stopwatch.stop());
-
-// const resetButton = document.getElementById('reset');
-// resetButton.addEventListener('click', () => stopwatch.reset());
-
-// const submitButton = document.getElementById('submit');
-// addButton.addEventListener('click', () => stopwatch.submit());
