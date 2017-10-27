@@ -22,7 +22,7 @@ class Anchor extends Component {
             label={this.props.label}
             href="#"
             className="button"
-            onClick={this.props.onClick } //do osobnej metody
+            onClick={this.props.onClick} // do osobnej metody
          >{this.props.label.capitalize()}
          </a>
       );

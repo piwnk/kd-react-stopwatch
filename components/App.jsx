@@ -5,6 +5,13 @@ import StopWatch from './StopWatch';
 import List from './List';
 
 
+const pad0 = (value) => {
+   const result = value.toString();
+   return result.length < 2 ? `0${result}` : result;
+};
+
+const format = times => `${times.minutes}:${pad0(times.seconds)}:${pad0(Math.floor(times.miliseconds))}`;
+
 export default class App extends Component {
    constructor(props) {
       super(props);
@@ -16,7 +23,7 @@ export default class App extends Component {
             miliseconds: 0
          },
          watch: null,
-         list: []
+         records: []
       };
    }
 
@@ -31,7 +38,7 @@ export default class App extends Component {
    }
 
    start = () => {
-      console.log(this.state.times);
+      // console.log(this.state.times);
       if (!this.state.running) {
          this.state.running = true;
          this.state.watch = setInterval(() => this.step(), 10);
@@ -77,9 +84,13 @@ export default class App extends Component {
 
 
    submit = () => {
-      const li = document.createElement('li');
-      li.innerText = this.format(this.times);
-      this.state.list.appendChild(li);
+      // this.state.records.push(format(this.state.times));
+      this.setState(prevState => ({
+         records: [...prevState.records, format(this.state.times)]
+      }));
+      // const li = document.createElement('li');
+      // li.innerText = this.format(this.times);
+      // this.state.list.appendChild(li);
    }
 
 
@@ -95,10 +106,10 @@ export default class App extends Component {
                onSubmit={this.submit}
             />
             <StopWatch
-               times={this.state.times}
+               times={format(this.state.times)}
             />
             <List
-               onSubmit={this.submit}
+               items={this.state.records}
             />
          </div>
       );

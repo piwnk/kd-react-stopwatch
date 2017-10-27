@@ -1,12 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-const pad0 = (value) => {
-   const result = value.toString();
-   return result.length < 2 ? `0${result}` : result;
-};
-
-const format = times => `${times.minutes}:${pad0(times.seconds)}:${pad0(Math.floor(times.miliseconds))}`;
 
 export default class StopWatch extends Component {
    // static propTypes = {
@@ -24,7 +18,8 @@ export default class StopWatch extends Component {
    // }
 
    static propTypes = {
-      times: PropTypes.object.isRequired
+      // times: PropTypes.object.isRequired
+      times: PropTypes.string.isRequired
    }
 
 
@@ -32,7 +27,8 @@ export default class StopWatch extends Component {
       return (
          <div
             className="stopwatch"
-         >{format(this.props.times)}
+         // >{format(this.props.times)}
+         >{this.props.times}
          </div>
       );
    }
