@@ -82,17 +82,11 @@ export default class App extends Component {
       }
    }
 
-
    submit = () => {
-      // this.state.records.push(format(this.state.times));
       this.setState(prevState => ({
          records: [...prevState.records, format(this.state.times)]
       }));
-      // const li = document.createElement('li');
-      // li.innerText = this.format(this.times);
-      // this.state.list.appendChild(li);
    }
-
 
    render() {
       return (

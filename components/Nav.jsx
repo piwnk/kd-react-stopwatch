@@ -30,7 +30,7 @@ class Anchor extends Component {
 }
 
 const Anchors = ({ onStart, onStop, onReset, onSubmit }) => {
-   const labels = ['start', 'stop', 'reset', 'submit'];
+   // const labels = ['start', 'stop', 'reset', 'submit'];
 
    return (
       <div>
