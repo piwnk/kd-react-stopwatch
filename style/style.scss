@@ -1,50 +1,74 @@
-* {
-   box-sizing: border-box;
-   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+@mixin border {
+    border: 5px solid coral;
+    border-radius: 10px;
+}
 
-   // border: 1px solid coral;
+* {
+    box-sizing: border-box;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; // border: 1px solid coral;
 }
 
 body {
-   margin: 0 auto;
+    margin: 0 auto;
 }
 
 .wrapper {
-   margin:  0 auto;
-   height: 100vh;
-   display: grid;
-   grid-template-rows: 1fr 2fr 2fr;
-   align-items: center;
-   // align-content: center;
-   
-   nav {
-      display: flex;
-      // display: grid;
-      // grid-template-columns: 1fr 1fr;
-      // grid-column-gap: 20px;
-      
-      justify-content: center;
-      align-content: space-around;
-      text-align: center;
-      .button {
-         margin: 10px;
-         height: 1.3em;
-         // width: 400px;
-         font-size: 4em;
-         text-decoration: none;
-         background-color: coral;
-         border-radius: 5px;
-         color: white;
-      }
-   }
+    margin: 0 auto;
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    grid-template-rows: 1fr 2fr 4fr;
+    grid-row-gap: 20px;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    .buttons {
+        display: flex;
+        justify-content: space-around;
+        align-content: space-around;
+        text-align: center;
+        width: 80vw;
+        justify-self: center;
+        // @include border;
+        .button {
+            width: 200px;
+            margin: 10px;
+            background-color: coral;
+            border-radius: 5px;
+            height: 5em;
+            a {
+                font-size: 4em;
+                text-decoration: none;
+                color: white;
+            }
+        }
+    }
+    .stopwatch {
+        font-size: 11em;
+        text-align: center;
+        @include border;
+        display: flex;
+        justify-content: space-around;
+        p {
+          // @include border;
+          width: 1.2em;
+          margin: 10px;
+          &:last-child {
+            color: coral;
+          }
+        }
+    }
+    .results {
+        color: black;
+        width: 200px;
+        margin: 0px auto;
+        @include border;
+        align-self: flex-start;
+        padding: 30px 20px;
+        text-align: center;
+    }
+}
 
-   .stopwatch {
-      font-size: 14em;
-      text-align: center;
-   }
-
-   .results {
-      color: black;
-   }
-
+.empty {
+    display: none
 }

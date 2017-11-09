@@ -10,35 +10,69 @@ body {
 .wrapper {
   margin: 0 auto;
   height: 100vh;
+  width: 100vw;
   display: grid;
-  grid-template-rows: 1fr 2fr 2fr;
+  grid-template-rows: 1fr 2fr 4fr;
+  grid-row-gap: 20px;
   align-items: center;
+  justify-content: center;
+  margin: 0 auto;
 }
 
-.wrapper nav {
+.wrapper .buttons {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-content: space-around;
   text-align: center;
+  width: 80vw;
+  justify-self: center;
 }
 
-.wrapper nav .button {
+.wrapper .buttons .button {
+  width: 200px;
   margin: 10px;
-  height: 1.3em;
-  font-size: 4em;
-  text-decoration: none;
   background-color: coral;
   border-radius: 5px;
+  height: 5em;
+}
+
+.wrapper .buttons .button a {
+  font-size: 4em;
+  text-decoration: none;
   color: white;
 }
 
 .wrapper .stopwatch {
-  font-size: 14em;
+  font-size: 11em;
   text-align: center;
+  border: 5px solid coral;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.wrapper .stopwatch p {
+  width: 1.2em;
+  margin: 10px;
+}
+
+.wrapper .stopwatch p:last-child {
+  color: coral;
 }
 
 .wrapper .results {
   color: black;
+  width: 200px;
+  margin: 0px auto;
+  border: 5px solid coral;
+  border-radius: 10px;
+  align-self: flex-start;
+  padding: 30px 20px;
+  text-align: center;
+}
+
+.empty {
+  display: none;
 }
  
 

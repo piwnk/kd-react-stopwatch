@@ -1,35 +1,27 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import { pad0 } from './tools';
 
 export default class StopWatch extends Component {
-   // static propTypes = {
-   //    display: PropTypes.element.isRequired,
-   //    list: PropTypes.element.isRequired
-   // }
+  static propTypes = {
+    // times: PropTypes.string.isRequired
+    times: PropTypes.objectOf(PropTypes.number).isRequired
+  }
 
-   // constructor(props) {
-   //    super(props);
-   //    console.log(this.props);
-   //    console.log(props);
-   //    this.running = false;
-   //    this.reset();
-   //    this.print(this.times);
-   // }
+  render() {
+    // const timeDisplay = this.props.times.map(item => (
+    //   <p>{item}</p>
+    // ));
 
-   static propTypes = {
-      // times: PropTypes.object.isRequired
-      times: PropTypes.string.isRequired
-   }
-
-
-   render() {
-      return (
-         <div
-            className="stopwatch"
-         // >{format(this.props.times)}
-         >{this.props.times}
-         </div>
-      );
-   }
+    return (
+      <div
+        className="stopwatch"
+      >
+        <p>{pad0(this.props.times.minutes)}</p>:
+        <p>{pad0(this.props.times.seconds)}</p>:
+        <p>{pad0(this.props.times.miliseconds)}</p>
+      </div>
+    );
+  }
 }
